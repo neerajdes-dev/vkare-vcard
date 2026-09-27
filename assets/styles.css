@@ -171,3 +171,13 @@ footer{background:#06101a!important}.mobile-bar{background:#07111b!important;bor
 .actions a,.actions button{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .actions a:hover,.actions button:hover{box-shadow:0 10px 28px rgba(0,0,0,.24)}
 @media(max-width:700px){.actions .icon svg{width:18px;height:18px}}
+
+/* Premium office-location CTA */
+.location-btn{min-width:290px!important;padding:12px 15px!important;border:1px solid #3b5267!important;border-radius:16px!important;background:linear-gradient(135deg,#101d29,#0a1520)!important;color:#fff!important;display:grid!important;grid-template-columns:48px 1fr 24px!important;gap:12px!important;text-align:left!important;align-items:center!important;box-shadow:0 10px 28px rgba(0,0,0,.22)!important}
+.location-btn:hover{border-color:#ef4055!important;transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.3)!important}
+.location-btn-icon{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#34a853,#fbbc04);color:#fff}
+.location-btn-icon svg{width:23px;height:23px;fill:currentColor}
+.location-btn b{display:block;font-size:13px;color:#fff}
+.location-btn small{display:block;margin-top:3px;font-size:10px;font-weight:500;color:#9eacb8}
+.location-arrow{font-size:20px;color:#ff5369;text-align:right}
+@media(max-width:700px){.location-btn{width:100%!important;min-width:0!important;margin-top:15px!important}}
