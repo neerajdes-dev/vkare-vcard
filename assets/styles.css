@@ -158,3 +158,16 @@ footer{background:#06101a!important}.mobile-bar{background:#07111b!important;bor
 /* Footer brand mark */
 .footer-logo{display:block;width:72px;height:58px;object-fit:contain;margin:0 auto 10px;border-radius:9px;background:#f7f8fa;padding:5px}
 @media(max-width:700px){.footer-logo{width:64px;height:52px}}
+
+/* Professional vector action icons */
+.actions .icon{display:grid!important;place-items:center!important}
+.actions .icon svg{width:27px;height:27px;fill:currentColor;display:block}
+.actions .phone-icon,.actions .email-icon,.actions .contact-icon{background:linear-gradient(135deg,#ff4059,#e70d39)!important;color:#fff!important}
+.actions .wa{background:linear-gradient(135deg,#23d366,#0fa746)!important;color:#fff!important}
+.actions .web-icon{background:linear-gradient(135deg,#299df2,#0876c7)!important;color:#fff!important}
+.actions .linkedin-icon{background:linear-gradient(135deg,#1689cf,#06679e)!important;color:#fff!important}
+.actions .map-icon{background:linear-gradient(135deg,#4caf50,#f5c242)!important;color:#fff!important}
+.actions .share-icon{background:linear-gradient(135deg,#354253,#1d2733)!important;color:#fff!important}
+.actions a,.actions button{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.actions a:hover,.actions button:hover{box-shadow:0 10px 28px rgba(0,0,0,.24)}
+@media(max-width:700px){.actions .icon svg{width:18px;height:18px}}
