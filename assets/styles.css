@@ -23,3 +23,16 @@ body.dark .connect .primary{background:linear-gradient(135deg,#ef4055,#b91f35)!i
 body:not(.dark){--bg:#edf1f4}.shell{box-shadow:0 24px 70px rgba(29,44,60,.16)}body:not(.dark) .hero{color:#142536}body:not(.dark) .theme{background:#f7fafc;border-color:#d9e1e7;color:#172536}
 .dark .hero{background:#18222d}.dark .hero-finance img{opacity:.22}.dark .hero-finance:after{background:linear-gradient(90deg,rgba(24,34,45,.98),rgba(24,34,45,.75) 48%,rgba(24,34,45,.25))}.dark .hero-message h2{color:#f2f6f8}.dark .hero-message p{color:#bdc8d0}.dark .theme{background:#25323d;color:#fff}.dark .theme-label{color:#fff}
 @media(max-width:700px){.hero{min-height:auto}.hero-copy{grid-template-columns:1fr;padding-top:50px}.hero-message{text-align:center;padding:0 8px 12px}.hero-message h2{font-size:30px}.hero-message p{margin-left:auto;margin-right:auto}.hero-finance img{opacity:.25}.hero-finance:after{background:rgba(255,255,255,.78)}.dark .hero-finance:after{background:rgba(24,34,45,.82)}.actions{grid-template-columns:repeat(4,1fr)!important}.theme-label{display:inline}.profile-card{padding-bottom:10px}}
+
+/* Improve hero text readability over finance image in light mode */
+body:not(.dark) .profile-card .intro{
+  color:#31465a!important;
+  font-weight:600;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:12px;
+  padding:9px 14px;
+  text-shadow:none;
+  box-shadow:0 5px 18px rgba(25,45,65,.06);
+}
+body:not(.dark) .profile-card .company{color:#172536!important}
