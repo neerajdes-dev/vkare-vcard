@@ -123,3 +123,34 @@ footer{background:#06101a!important}.mobile-bar{background:#07111b!important;bor
 .actions b{font-size:16px!important}
 @media(max-width:1050px){.shell{max-width:920px!important}.hero{padding-left:34px!important;padding-right:34px!important}.hero-message h2{font-size:48px!important}.profile{width:180px!important;height:180px!important}.profile-card h1{font-size:38px!important}.brand-lockup{top:-560px}.brand-lockup strong{font-size:44px}.brand-lockup img{width:90px;height:90px}.actions a,.actions button{min-height:105px!important}.actions i{width:44px!important;height:44px!important;font-size:20px!important}}
 @media(max-width:700px){.shell{margin:0!important;border-radius:0!important}.hero{padding:24px 18px!important;border-radius:0!important}.brand-lockup{position:relative;top:auto;left:auto;justify-content:center;margin:0 0 25px}.brand-lockup img{width:60px;height:60px}.brand-lockup strong{font-size:32px}.brand-lockup small{font-size:13px}.hero-message{padding:8px 0 18px!important}.hero-message>span:before{width:34px;margin-right:10px}.hero-message h2{font-size:39px!important}.hero-message p{font-size:16px!important}.profile{width:150px!important;height:150px!important}.profile-card h1{font-size:31px!important}.profile-card .role,.profile-card .company{font-size:14px!important}.profile-card .intro{font-size:13px!important}.focus{grid-template-columns:repeat(2,1fr)!important}.focus span{font-size:18px!important;min-height:58px}.focus span b{font-size:11px}.actions{grid-template-columns:repeat(4,1fr)!important;padding:14px 10px 20px!important}.actions a,.actions button{min-height:92px!important}.actions i{width:38px!important;height:38px!important;font-size:17px!important}.actions b{font-size:10px!important}}
+
+/* Mobile hero rebuild — single-column, no overlaps */
+@media(max-width:700px){
+ body{overflow-x:hidden!important}
+ .shell{width:100%!important;max-width:none!important}
+ .hero{min-height:auto!important;padding:28px 18px 26px!important;display:block!important;overflow:hidden!important}
+ .hero-copy{display:flex!important;flex-direction:column!important;min-height:0!important;width:100%!important;gap:0!important;padding:0!important}
+ .profile-card{order:1!important;width:100%!important;padding:0!important;margin:0!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important}
+ .profile{width:148px!important;height:148px!important;margin:0 auto!important}
+ .profile-card .logo{width:70px!important;height:58px!important;margin:12px auto 14px!important;transform:none!important}
+ .profile-card h1{font-size:31px!important;line-height:1.12!important;margin:0 0 9px!important;width:100%!important}
+ .profile-card .role{font-size:14px!important;line-height:1.35!important;margin:0 auto 8px!important;max-width:340px!important}
+ .profile-card .company{font-size:14px!important;margin:0 0 12px!important}
+ .profile-card .intro{font-size:13px!important;line-height:1.55!important;max-width:350px!important;margin:0 auto 16px!important;padding:0!important}
+ .focus{width:100%!important;max-width:360px!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;margin:0 auto!important}
+ .focus span{min-height:58px!important;width:100%!important;padding:8px 10px!important;font-size:17px!important;gap:8px!important;border-radius:18px!important}
+ .focus span b{font-size:11px!important}
+ .hero-message{order:2!important;width:100%!important;text-align:center!important;padding:34px 0 0!important;margin:0!important}
+ .brand-lockup{position:static!important;display:none!important}
+ .hero-message>span{display:block!important;font-size:10px!important;letter-spacing:.18em!important;margin:0 0 12px!important}
+ .hero-message>span:before{display:none!important}
+ .hero-message h2{font-size:34px!important;line-height:1.04!important;max-width:350px!important;margin:0 auto 13px!important;letter-spacing:-.025em!important}
+ .hero-message p{font-size:15px!important;line-height:1.5!important;max-width:330px!important;margin:0 auto!important}
+ .hero-finance img{opacity:.32!important;object-position:center!important}
+ .hero-finance:after{background:linear-gradient(180deg,rgba(7,17,27,.72),rgba(7,17,27,.88))!important}
+ .actions{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:7px!important;padding:12px 8px 18px!important}
+ .actions a,.actions button{min-width:0!important;min-height:82px!important;padding:8px 3px!important;border-radius:12px!important}
+ .actions i{width:34px!important;height:34px!important;font-size:15px!important}
+ .actions b{font-size:9px!important;white-space:normal!important}
+ .mobile-bar{z-index:100!important}
+}
