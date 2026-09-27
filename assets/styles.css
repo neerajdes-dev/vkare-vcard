@@ -190,3 +190,14 @@ footer{background:#06101a!important}.mobile-bar{background:#07111b!important;bor
 .mobile-icon.whatsapp{background:linear-gradient(135deg,#25d366,#0da94a)}
 .mobile-bar a:nth-child(2){background:transparent!important}
 .mobile-bar a span:last-child{font-size:11px;font-weight:650}
+
+/* Force new SVG mobile navigation over legacy symbol styles */
+@media(max-width:700px){
+ .mobile-bar{display:grid!important;grid-template-columns:repeat(4,1fr)!important;height:76px!important;background:#06111c!important}
+ .mobile-bar a{background:transparent!important;color:#fff!important;padding:7px 2px!important;gap:4px!important}
+ .mobile-bar .mobile-icon{width:32px!important;height:32px!important;border-radius:50%!important;display:grid!important;place-items:center!important}
+ .mobile-bar .mobile-icon svg{width:17px!important;height:17px!important;fill:#fff!important}
+ .mobile-bar .call,.mobile-bar .email,.mobile-bar .save{background:#ef3852!important}
+ .mobile-bar .whatsapp{background:#19b957!important}
+ .mobile-bar a>span:last-child{font-size:10px!important;line-height:1!important;color:#fff!important}
+}
