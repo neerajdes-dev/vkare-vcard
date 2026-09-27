@@ -201,3 +201,13 @@ footer{background:#06101a!important}.mobile-bar{background:#07111b!important;bor
  .mobile-bar .whatsapp{background:#19b957!important}
  .mobile-bar a>span:last-child{font-size:10px!important;line-height:1!important;color:#fff!important}
 }
+
+/* Consistent professional advisory SVG icon system */
+.focus-icon{width:38px!important;height:38px!important;flex:0 0 38px;display:grid!important;place-items:center!important;border-radius:50%;background:rgba(239,64,85,.15);color:#ff4059}
+.focus-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-grid strong{display:flex!important;align-items:center!important;gap:10px!important}
+.feature-icon{width:32px;height:32px;flex:0 0 32px;border-radius:9px;display:grid;place-items:center;background:rgba(239,64,85,.12);color:#ff4059;border:1px solid rgba(239,64,85,.24)}
+.feature-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-grid article{transition:border-color .2s ease,transform .2s ease,background .2s ease}
+.feature-grid article:hover{border-color:rgba(239,64,85,.5)!important;background:#122230!important;transform:translateY(-2px)}
+@media(max-width:700px){.focus-icon{width:30px!important;height:30px!important;flex-basis:30px}.focus-icon svg{width:18px;height:18px}.feature-icon{width:28px;height:28px;flex-basis:28px}.feature-icon svg{width:16px;height:16px}}
