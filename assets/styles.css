@@ -45,3 +45,20 @@ body:not(.dark) .profile-card .intro{
   border:1px solid rgba(20,37,54,.12)!important;
   box-shadow:0 6px 20px rgba(20,37,54,.12)!important;
 }
+
+/* Dark-only VKare visual system */
+body{--ink:#f5f7fa;--muted:#bac5cf;--bg:#07111b;--card:#0b1622;--line:#273746;--soft:#251923;background:radial-gradient(circle at 85% 5%,#21354d 0%,#0c1825 30%,#07111b 70%)!important;color:var(--ink)!important}
+.orb{opacity:.09}.shell{background:#0b1622!important;border-color:#314153!important;box-shadow:0 28px 90px rgba(0,0,0,.48)!important}
+.hero{background:#0b1622!important;color:#f5f7fa!important}
+.hero-finance img{opacity:.56!important;filter:saturate(.9) brightness(.68) contrast(1.05)}
+.hero-finance:after{background:linear-gradient(90deg,rgba(7,17,27,.97) 0%,rgba(7,17,27,.76) 38%,rgba(7,17,27,.28) 72%,rgba(7,17,27,.4) 100%)!important}
+.hero-message h2,.profile-card h1,.profile-card .company{color:#fff!important}
+.hero-message p,.profile-card .intro{color:#e1e8ee!important}
+.profile-card .intro{background:transparent!important;border:0!important;box-shadow:none!important;font-weight:500!important;padding:0!important}
+.profile-card .role{color:#ff3854!important}.focus span{background:rgba(17,25,38,.78)!important;border-color:#7a3140!important;color:#f5f7fa!important}
+.actions{background:#08131f;border-color:#273746}.actions a,.actions button{background:linear-gradient(180deg,#0d1926,#09131e)!important;border-color:#334354!important;color:#f5f7fa!important}.actions a:hover,.actions button:hover{border-color:#ef4055!important;transform:translateY(-2px)}
+.section{background:#0b1622!important;border-color:#273746!important}.section.alt{background:#0e1a26!important}.section h2,.feature-grid strong,.service-grid h3{color:#f5f7fa!important}.section p,.feature-grid span,.service-grid ul{color:#b9c5cf!important}
+.feature-grid article,.service-grid article{background:#101d29!important;border-color:#30404e!important}.connect{background:linear-gradient(135deg,#101c28,#161a24)!important}.form-grid label{color:#dce5eb!important}.form-grid input,.form-grid textarea{background:#08131d!important;border-color:#3a4b59!important;color:#fff!important}.form-note{color:#aebbc5!important}
+.split .btn{background:#251923!important;border-color:#8a4450!important;color:#ff6c80!important}.primary{background:linear-gradient(135deg,#ef4055,#b71f35)!important;color:#fff!important}
+footer{background:#06101a!important}.mobile-bar{background:#07111b!important;border-top:1px solid #2a3947}
+@media(max-width:700px){.hero-finance img{opacity:.38!important}.hero-finance:after{background:rgba(7,17,27,.72)!important}}
