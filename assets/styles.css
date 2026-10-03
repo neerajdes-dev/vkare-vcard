@@ -293,3 +293,42 @@ footer{background:#06101a!important}.mobile-bar{background:#07111b!important;bor
 .approach-flow p{font-size:12px;line-height:1.55;color:#aebbc7;margin:0}
 @media(max-width:800px){.approach-flow{grid-template-columns:1fr 1fr}.approach-flow article:not(:last-child):after{display:none}}
 @media(max-width:520px){.approach-flow{grid-template-columns:1fr}.approach-flow article{min-height:0;padding:18px}.approach-intro{font-size:13px}}
+
+/* 2026-10-03 VKare brand refinement: logo-derived coral -> peach palette */
+:root{--vk-red:#f23858;--vk-coral:#ff5b63;--vk-peach:#ff9a61;--vk-soft:#ffd0c3;--vk-ink:#07131f;--vk-card:#0d1b27}
+.eyebrow,.role,.hero-message em,.service-grid li::marker{color:var(--vk-coral)!important}
+.btn.primary{background:linear-gradient(90deg,var(--vk-red),#c91f3d)!important}
+.focus-icon,.feature-icon,.step-icon,.credential-icon{color:var(--vk-coral)!important;background:linear-gradient(135deg,rgba(242,56,88,.16),rgba(255,154,97,.11))!important;border-color:rgba(255,91,99,.28)!important}
+.focus span,.approach-flow article,.feature-grid article{border-color:rgba(255,91,99,.34)!important}
+.location-arrow{color:var(--vk-coral)!important}
+.location-btn:hover{border-color:var(--vk-coral)!important}
+.mobile-icon.call,.mobile-icon.email,.mobile-icon.save{background:linear-gradient(135deg,var(--vk-red),var(--vk-peach))!important}
+footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Clean hero after removal of the old left marketing block */
+.hero-profile-only{display:flex!important;justify-content:center!important;align-items:center!important;min-height:440px!important}
+.hero-profile-only .profile-card{width:min(720px,72%)!important;margin-left:auto!important;text-align:center!important}
+@media(min-width:1051px){
+ .hero{min-height:455px!important}
+ .hero-profile-only{min-height:430px!important}
+ .hero-profile-only .profile{width:160px!important;height:160px!important}
+}
+@media(max-width:1050px){
+ .hero-profile-only{min-height:520px!important;padding:30px 16px!important}
+ .hero-profile-only .profile-card{width:100%!important;margin:0!important}
+}
+
+/* Professional background + academic/global exposure */
+.profile-background{background:linear-gradient(180deg,#0a1824,#0b1a26)!important}
+.background-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.background-copy p{color:#c4ced7;line-height:1.75;margin:0 0 16px}
+.clean-image{position:relative!important;overflow:hidden;border-radius:18px;border:1px solid #304454}
+.clean-image img{display:block;width:100%;height:260px;object-fit:cover}
+.clean-image>div{display:none!important}
+.credentials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.credentials-grid article{display:flex;gap:13px;padding:18px;border:1px solid #2d4253;border-radius:16px;background:#0d1b27}
+.credential-icon{width:40px;height:40px;flex:0 0 40px;border-radius:11px;display:grid;place-items:center}
+.credential-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.credentials-grid h3{font-size:14px;color:#fff;margin:0 0 7px}
+.credentials-grid p{font-size:11.5px;line-height:1.55;color:#aebbc7;margin:0}
+@media(max-width:800px){.background-grid{grid-template-columns:1fr}.credentials-grid{grid-template-columns:1fr}.clean-image img{height:auto}.hero-profile-only .profile-card{width:100%!important}}
