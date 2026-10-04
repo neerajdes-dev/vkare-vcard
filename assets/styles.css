@@ -504,3 +504,25 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .enquiry-card form{grid-template-columns:1fr!important;padding:16px!important;gap:13px!important}
  .light-theme .enquiry-card form label.full,.light-theme .enquiry-card .btn.full{grid-column:1!important}
 }
+
+/* 2026-10-04 Hero readability fix — light glass profile panel */
+.light-theme .hero:before{
+ background:linear-gradient(90deg,rgba(255,255,255,.90) 0%,rgba(255,255,255,.72) 43%,rgba(255,255,255,.18) 72%,rgba(255,255,255,.04) 100%)!important;
+}
+.light-theme .hero-profile-only .profile-card{
+ background:rgba(255,255,255,.88)!important;
+ border:1px solid rgba(255,255,255,.92)!important;
+ border-radius:24px!important;
+ padding:24px!important;
+ box-shadow:0 16px 38px rgba(20,31,43,.14)!important;
+ backdrop-filter:blur(8px)!important;
+ -webkit-backdrop-filter:blur(8px)!important;
+}
+.light-theme .profile-card h1{color:#111d2b!important;opacity:1!important}
+.light-theme .profile-card .company{color:#344354!important;opacity:1!important}
+.light-theme .profile-card .intro{color:#435466!important;opacity:1!important;font-weight:600!important}
+.light-theme .experience-badge{background:#fff4f0!important;border-color:#f1b9ad!important;color:#8f2d37!important}
+@media(max-width:700px){
+ .light-theme .hero:before{background:rgba(255,255,255,.70)!important}
+ .light-theme .hero-profile-only .profile-card{background:rgba(255,255,255,.91)!important;padding:20px 16px!important}
+}
