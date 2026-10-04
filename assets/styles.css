@@ -449,3 +449,58 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .connect-band .location-btn{margin-top:16px!important;width:100%!important}
  .light-theme .enquiry-card form{padding:14px!important}
 }
+
+/* 2026-10-04 Fix enquiry form layout in light theme */
+.light-theme .enquiry-card{background:#fff!important;color:#172231!important}
+.light-theme .enquiry-card>p{color:#5d6b79!important}
+.light-theme .enquiry-card form{
+ display:grid!important;
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:16px!important;
+ align-items:start!important;
+ background:#fff8f5!important;
+ border:1px solid #f0ddd8!important;
+ border-radius:20px!important;
+ padding:22px!important;
+}
+.light-theme .enquiry-card form label{
+ display:flex!important;
+ flex-direction:column!important;
+ gap:8px!important;
+ min-width:0!important;
+ color:#344354!important;
+ font-size:12px!important;
+ font-weight:700!important;
+}
+.light-theme .enquiry-card form label.full{grid-column:1/-1!important}
+.light-theme .enquiry-card input,
+.light-theme .enquiry-card textarea{
+ box-sizing:border-box!important;
+ display:block!important;
+ width:100%!important;
+ min-width:0!important;
+ margin:0!important;
+ padding:12px 14px!important;
+ border:1px solid #d8e0e7!important;
+ border-radius:11px!important;
+ background:#fff!important;
+ color:#172231!important;
+ font:inherit!important;
+ outline:none!important;
+}
+.light-theme .enquiry-card input{height:44px!important}
+.light-theme .enquiry-card textarea{min-height:110px!important;resize:vertical!important}
+.light-theme .enquiry-card input:focus,
+.light-theme .enquiry-card textarea:focus{border-color:#f25a68!important;box-shadow:0 0 0 3px rgba(242,56,88,.09)!important}
+.light-theme .enquiry-card .btn.full{
+ grid-column:1/-1!important;
+ width:100%!important;
+ min-height:46px!important;
+ margin:0!important;
+ border-radius:12px!important;
+}
+.light-theme .enquiry-card small{display:block!important;margin-top:13px!important;color:#71808e!important}
+@media(max-width:800px){
+ .light-theme .enquiry-card form{grid-template-columns:1fr!important;padding:16px!important;gap:13px!important}
+ .light-theme .enquiry-card form label.full,.light-theme .enquiry-card .btn.full{grid-column:1!important}
+}
