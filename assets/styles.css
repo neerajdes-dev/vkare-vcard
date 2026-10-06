@@ -850,3 +850,52 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .section-divider span{left:22px!important;width:48px!important}
  .light-theme .services-section{padding-top:30px!important}
 }
+
+/* 2026-10-06 — About artwork containment + true section separation */
+.light-theme .profile-background{
+  position:relative!important;
+  overflow:hidden!important;
+  padding-bottom:52px!important;
+}
+.light-theme .profile-background .background-grid{
+  align-items:center!important;
+}
+.light-theme .profile-background .wealth-image.clean-image{
+  position:relative!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow:hidden!important;
+  align-self:center!important;
+  margin:0!important;
+}
+.light-theme .profile-background .wealth-image.clean-image img{
+  position:static!important;
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+}
+.light-theme .section-divider{
+  clear:both!important;
+  position:relative!important;
+  z-index:3!important;
+  height:30px!important;
+  margin:0!important;
+  background:#f7f9fb!important;
+  border-top:1px solid #e3e8ed!important;
+  border-bottom:1px solid #e3e8ed!important;
+}
+.light-theme .services-section{
+  position:relative!important;
+  z-index:2!important;
+  padding-top:42px!important;
+  background:#fff!important;
+}
+@media(max-width:700px){
+ .light-theme .profile-background{padding-bottom:34px!important}
+ .light-theme .section-divider{height:20px!important}
+ .light-theme .services-section{padding-top:30px!important}
+}
