@@ -645,3 +645,49 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .experience-badge{margin:5px auto!important}
  .light-theme .hero:after{left:50%;transform:translateX(-50%);bottom:18px;width:46px}
 }
+
+/* 2026-10-06 alignment refinement */
+@media (min-width:701px){
+ .light-theme .hero-profile-only .profile-card{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:28px!important;
+  width:auto!important;
+  max-width:760px!important;
+  text-align:left!important;
+ }
+ .light-theme .profile-card .profile{
+  flex:0 0 150px!important;
+  margin:0!important;
+ }
+ .light-theme .profile-card h1{
+  margin:0!important;
+  align-self:center!important;
+ }
+ .light-theme .background-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr)!important;
+  align-items:center!important;
+  gap:42px!important;
+ }
+ .light-theme .background-copy{
+  align-self:center!important;
+ }
+ .light-theme .wealth-image{
+  align-self:center!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:0!important;
+ }
+ .light-theme .wealth-image img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:300px!important;
+  object-fit:cover!important;
+  object-position:center!important;
+ }
+}
