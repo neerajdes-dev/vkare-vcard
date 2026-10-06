@@ -903,3 +903,19 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
 /* 2026-10-06 — remove separator strip between About and Expertise */
 .light-theme .section-divider{display:none!important}
 .light-theme .profile-background{border-bottom:0!important}
+
+/* 2026-10-06 — tighten About Khagendra heading-to-content spacing */
+.light-theme .profile-background{
+  padding-top:28px!important;
+}
+.light-theme .profile-background .section-kicker{
+  margin-bottom:18px!important;
+}
+.light-theme .profile-background .background-grid{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+@media(max-width:700px){
+  .light-theme .profile-background{padding-top:22px!important}
+  .light-theme .profile-background .section-kicker{margin-bottom:14px!important}
+}
