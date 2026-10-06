@@ -740,3 +740,33 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
   object-fit:cover!important;object-position:center!important;border-radius:22px!important;
  }
 }
+
+/* 2026-10-06 visual correction from live screenshot */
+@media (min-width:901px){
+ /* Keep the accent separate from the name/photo */
+ .light-theme .hero:after{
+  left:68px!important;
+  bottom:42px!important;
+  width:62px!important;
+  height:3px!important;
+  transform:none!important;
+ }
+ .light-theme .hero-profile-only .profile-card{gap:34px!important}
+ /* Show the complete planning artwork; never crop its headline */
+ .light-theme .wealth-image{
+  overflow:hidden!important;
+  border-radius:22px!important;
+  background:#fff7f1!important;
+ }
+ .light-theme .wealth-image img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  border-radius:22px!important;
+ }
+ .light-theme .background-grid{align-items:center!important}
+}
