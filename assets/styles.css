@@ -955,3 +955,31 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .services-section{padding-top:34px!important}
  .light-theme .services-section>.eyebrow{margin-bottom:16px!important}
 }
+
+/* 2026-10-06 — mobile information hierarchy: actions near company/footer */
+.actions-lower{border-top:1px solid #e4e9ee!important;border-bottom:1px solid #e4e9ee!important}
+@media(max-width:700px){
+ .light-theme .actions-lower{
+   display:grid!important;
+   grid-template-columns:repeat(4,minmax(0,1fr))!important;
+   gap:10px!important;
+   padding:22px 18px!important;
+   background:#fff!important;
+ }
+ .light-theme .actions-lower a,
+ .light-theme .actions-lower button{
+   min-width:0!important;
+   min-height:82px!important;
+   padding:10px 4px!important;
+   border:1px solid #e3e8ee!important;
+   border-radius:14px!important;
+   box-shadow:none!important;
+   background:#fff!important;
+ }
+ .light-theme .actions-lower .icon{
+   width:34px!important;height:34px!important;margin-bottom:6px!important;
+ }
+ .light-theme .actions-lower b{font-size:10.5px!important;line-height:1.15!important}
+ /* keep the persistent bar focused on the four highest-value actions */
+ .mobile-bar{display:grid!important;grid-template-columns:repeat(4,1fr)!important}
+}
