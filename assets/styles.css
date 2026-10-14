@@ -1212,3 +1212,31 @@ body.light-theme{
   backdrop-filter:blur(10px) saturate(125%);-webkit-backdrop-filter:blur(10px) saturate(125%);
  }
 }
+
+/* VKare finance orbit: premium dark glass with gently rotating financial imagery */
+body.light-theme{position:relative;isolation:isolate}
+body.light-theme::before{
+ content:"";position:fixed;inset:-34vmax;z-index:-1;pointer-events:none;
+ background-image:linear-gradient(135deg,rgba(8,19,31,.56),rgba(10,20,34,.42)),url("./finance-growth.png");
+ background-repeat:no-repeat;background-position:center;background-size:cover;
+ opacity:.27;transform-origin:center;animation:vk-finance-orbit 95s linear infinite;
+ will-change:transform;
+}
+@keyframes vk-finance-orbit{from{transform:rotate(0deg) scale(1.1)}to{transform:rotate(360deg) scale(1.1)}}
+body.light-theme .shell{background:rgba(13,26,39,.84)!important;position:relative;z-index:1}
+body.light-theme .services-section .service-grid>article:not(.visual),
+body.light-theme .approach-section .approach-flow>article,
+body.light-theme .connect-location,body.light-theme .connect-enquiry,
+body.light-theme .actions-lower :is(a,button){
+ background:linear-gradient(135deg,rgba(39,59,78,.78),rgba(18,34,51,.85))!important;
+ border:1px solid rgba(255,125,143,.32)!important;
+ box-shadow:0 14px 38px rgba(0,0,0,.27),inset 0 1px 0 rgba(255,255,255,.12)!important;
+ -webkit-backdrop-filter:blur(12px) saturate(130%);backdrop-filter:blur(12px) saturate(130%);
+}
+body.light-theme .services-section .service-grid>article:not(.visual) :is(h3,li),
+body.light-theme .approach-section .approach-flow>article :is(h3,p){color:#f0f4f8!important}
+@media(max-width:700px){body.light-theme::before{inset:-20vmax;animation-duration:120s;opacity:.17}
+ body.light-theme .services-section .service-grid>article:not(.visual),
+ body.light-theme .approach-section .approach-flow>article{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+}
+@media(prefers-reduced-motion:reduce){body.light-theme::before{animation:none!important;transform:none!important}}
