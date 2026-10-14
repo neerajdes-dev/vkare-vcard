@@ -1384,3 +1384,63 @@ html[data-theme="dark"] body.light-theme .mobile-bar{
  html[data-theme="dark"] body.light-theme .shell .section,
  html[data-theme="dark"] body.light-theme .shell footer{background:#1b3042!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 }
+
+/* Phase 13.1–13.6: coral aurora, profile halo, coin parallax, tactile actions, reveal and mobile safeguards */
+html[data-theme="dark"] body.light-theme .shell{overflow:clip}
+html[data-theme="dark"] body.light-theme .shell::after{
+ content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+ background:radial-gradient(ellipse 280px 360px at 12% 12%,rgba(250,78,115,.15),transparent 75%),
+ radial-gradient(ellipse 340px 400px at 92% 45%,rgba(48,151,220,.14),transparent 77%),
+ radial-gradient(ellipse 260px 330px at 22% 85%,rgba(255,117,72,.12),transparent 75%);
+ background-size:100% 100%;animation:vk-aurora 18s ease-in-out infinite alternate;
+}
+@keyframes vk-aurora{from{opacity:.55;transform:translate3d(-8px,0,0)}to{opacity:1;transform:translate3d(8px,-18px,0)}}
+html[data-theme="dark"] body.light-theme .hero .profile-card{position:relative;isolation:isolate}
+html[data-theme="dark"] body.light-theme .hero .profile-card .profile{
+ position:relative;z-index:1;border:3px solid rgba(255,161,176,.83)!important;
+ box-shadow:0 0 0 6px rgba(247,76,109,.09),0 0 35px rgba(247,76,109,.23)!important;
+ animation:vk-portrait-breathe 5s ease-in-out infinite alternate;
+}
+@keyframes vk-portrait-breathe{to{box-shadow:0 0 0 9px rgba(247,76,109,.13),0 0 47px rgba(247,76,109,.34)}}
+html[data-theme="dark"] body.light-theme .hero .profile-card::before{
+ content:"";position:absolute;width:210px;height:210px;top:50%;left:50%;transform:translate(-50%,-50%);
+ border-radius:50%;border:1px dashed rgba(255,116,142,.36);pointer-events:none;
+ animation:vk-halo-spin 34s linear infinite;opacity:.65;
+}
+@keyframes vk-halo-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button),
+html[data-theme="dark"] body.light-theme .mobile-bar a,
+html[data-theme="dark"] body.light-theme .connect-enquiry button{
+ position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease!important;
+ -webkit-tap-highlight-color:transparent;
+}
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button)::after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.10) 48%,transparent 70%);
+ transform:translateX(-125%);transition:transform .7s ease;
+}
+@media(hover:hover) and (pointer:fine){
+ html[data-theme="dark"] body.light-theme .actions-lower :is(a,button):hover::after{transform:translateX(125%)}
+ html[data-theme="dark"] body.light-theme .actions-lower :is(a,button):hover{transform:translateY(-3px)!important;box-shadow:0 14px 35px rgba(241,70,106,.17)!important}
+}
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button):active,
+html[data-theme="dark"] body.light-theme .mobile-bar a:active{transform:scale(.96)!important}
+@supports(animation-timeline:view()){
+ html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual),
+ html[data-theme="dark"] body.light-theme .approach-flow>article{
+  animation:vk-reveal both linear;animation-timeline:view();animation-range:entry 0% entry 22%;
+ }
+ @keyframes vk-reveal{from{opacity:.75;translate:0 12px}to{opacity:1;translate:0 0}}
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell::after{animation-duration:26s}
+ html[data-theme="dark"] body.light-theme .hero .profile-card::before{width:170px;height:170px}
+ html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual){backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme="dark"] body.light-theme .shell::after,
+ html[data-theme="dark"] body.light-theme .hero .profile-card .profile,
+ html[data-theme="dark"] body.light-theme .hero .profile-card::before,
+ html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual),
+ html[data-theme="dark"] body.light-theme .approach-flow>article{animation:none!important;translate:none!important}
+}
