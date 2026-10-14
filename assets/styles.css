@@ -1057,3 +1057,42 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .connect-enquiry input{height:44px!important}
  .light-theme .connect-enquiry textarea{min-height:86px!important}
 }
+
+/* 2026-10-14 — Resolvent-inspired premium interaction and Android polish.
+   VKare light identity and existing layout/content remain unchanged. */
+.light-theme .actions-lower a,.light-theme .actions-lower button,
+.light-theme .compact-map-btn,.light-theme .connect-enquiry .btn.primary{
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,filter .2s ease!important;
+  -webkit-tap-highlight-color:transparent;
+}
+@media(hover:hover) and (pointer:fine){
+ .light-theme .actions-lower a:hover,.light-theme .actions-lower button:hover{
+  transform:translateY(-3px);border-color:#f5a8a6!important;
+  box-shadow:0 12px 28px rgba(37,45,59,.11)!important;
+ }
+ .light-theme .compact-map-btn:hover,.light-theme .connect-enquiry .btn.primary:hover{
+  transform:translateY(-2px);filter:brightness(1.035);
+ }
+}
+.light-theme .actions-lower :is(a,button):focus-visible,
+.light-theme .compact-map-btn:focus-visible,
+.light-theme .connect-enquiry :is(input,textarea,button):focus-visible,
+.mobile-bar a:focus-visible{
+ outline:3px solid #ef5365!important;outline-offset:3px!important;
+}
+.light-theme .actions-lower :is(a,button):active,
+.light-theme .compact-map-btn:active{transform:scale(.975)}
+.light-theme .actions-lower .icon svg,.mobile-bar .mobile-icon svg{
+ display:block;width:60%;height:60%;margin:auto;
+}
+.light-theme .actions-lower .icon,.mobile-bar .mobile-icon{display:grid;place-items:center;flex-shrink:0}
+@media(max-width:700px){
+ .light-theme .actions-lower{gap:9px!important;padding:18px 14px!important}
+ .light-theme .actions-lower :is(a,button){min-height:78px!important;touch-action:manipulation}
+ .mobile-bar{padding-bottom:env(safe-area-inset-bottom,0px)!important}
+ .mobile-bar a{min-height:54px;touch-action:manipulation}
+}
+@media(prefers-reduced-motion:reduce){
+ .light-theme .actions-lower :is(a,button),.light-theme .compact-map-btn,
+ .light-theme .connect-enquiry .btn.primary{transition:none!important;animation:none!important}
+}
