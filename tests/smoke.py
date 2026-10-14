@@ -6,7 +6,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = (ROOT / "index.html").read_text(encoding="utf-8")
-CSS = (ROOT / "assets/styles.css").read_text(encoding="utf-8")
+CSS = "\n".join((ROOT / path).read_text(encoding="utf-8") for path in ("assets/styles.css", "assets/premium.css"))
 JS = (ROOT / "assets/app.js").read_text(encoding="utf-8")
 
 class Scan(HTMLParser):
@@ -48,6 +48,7 @@ assert re.search(r'<input[^>]*id="senderEmail"[^>]*type="email"', HTML)
 assert len(scan.forms) == 1
 assert any("profile" in img.get("class", "").split() for img in scan.images)
 assert all("alt" in img for img in scan.images)
+assert "premium.css" in HTML
 assert "prefers-reduced-motion" in CSS
 assert "safe-area-inset-bottom" in CSS
 print("PASS: local assets, critical links, contact elements, branding, dark theme, and accessibility safeguards")
