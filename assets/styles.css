@@ -1189,3 +1189,26 @@ body.light-theme{
   background:#1c2b3a!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important
  }
 }
+
+/* 2026-10-14 — fix actual service-grid article cards shown white on Android. */
+.light-theme .services-section .service-grid>article:not(.visual),
+.light-theme .approach-section .approach-flow>article{
+ background:linear-gradient(145deg,rgba(34,49,64,.96),rgba(19,32,46,.97))!important;
+ color:#eaf0f6!important;
+ border:1px solid rgba(255,118,128,.29)!important;
+ border-radius:24px!important;
+ box-shadow:0 16px 36px rgba(0,0,0,.23),inset 0 1px 0 rgba(255,255,255,.09)!important;
+}
+.light-theme .services-section .service-grid>article:not(.visual) :is(h3,li,p),
+.light-theme .approach-section .approach-flow>article :is(h3,p){
+ color:#eaf0f6!important;opacity:1!important;
+}
+.light-theme .services-section .service-grid>article:not(.visual) li::marker{color:#ff657b!important}
+.light-theme .services-section .service-grid>article:not(.visual) :is(.service-no),
+.light-theme .approach-section .approach-flow>article .step-no{color:#ff6a80!important}
+@supports(backdrop-filter:blur(10px)){
+ .light-theme .services-section .service-grid>article:not(.visual),
+ .light-theme .approach-section .approach-flow>article{
+  backdrop-filter:blur(10px) saturate(125%);-webkit-backdrop-filter:blur(10px) saturate(125%);
+ }
+}
