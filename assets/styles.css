@@ -1240,3 +1240,36 @@ body.light-theme .approach-section .approach-flow>article :is(h3,p){color:#f0f4f
  body.light-theme .approach-section .approach-flow>article{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 }
 @media(prefers-reduced-motion:reduce){body.light-theme::before{animation:none!important;transform:none!important}}
+
+/* Finance backdrop visibility fix: earlier backdrop was behind opaque shell. */
+html body.light-theme{background:#081521!important}
+html body.light-theme .shell{
+ background:rgba(10,23,36,.69)!important;
+ isolation:isolate;
+}
+html body.light-theme .shell::before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(180deg,rgba(6,17,30,.54),rgba(9,20,33,.57)),url("./finance-growth.png") center / 105% auto repeat-y;
+ opacity:.46;
+}
+html body.light-theme .services-section,
+html body.light-theme .profile-background,
+html body.light-theme .approach-section,
+html body.light-theme .connect-hub,
+html body.light-theme .actions-lower{
+ background:rgba(11,25,39,.56)!important;
+}
+html body.light-theme .services-section .service-grid>article:not(.visual),
+html body.light-theme .approach-section .approach-flow>article{
+ background:rgba(24,42,60,.72)!important;
+ -webkit-backdrop-filter:blur(8px) saturate(130%)!important;
+ backdrop-filter:blur(8px) saturate(130%)!important;
+}
+html body.light-theme::before{z-index:0!important;opacity:.5!important}
+@media(max-width:700px){
+ html body.light-theme .shell::before{background-size:180% auto;opacity:.36}
+ html body.light-theme .services-section,
+ html body.light-theme .profile-background,
+ html body.light-theme .approach-section,
+ html body.light-theme .connect-hub{background:rgba(11,25,39,.52)!important}
+}
