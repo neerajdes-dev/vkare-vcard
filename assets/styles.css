@@ -1528,3 +1528,30 @@ html[data-theme="dark"] body.light-theme .mobile-bar a{touch-action:manipulation
   transition-duration:.01ms!important;
  }
 }
+
+/* Phase 15 — mobile finish, stable tap targets, and responsive performance */
+html{scroll-padding-bottom:100px}
+html[data-theme="dark"] body.light-theme .mobile-bar{
+ padding-bottom:max(8px,env(safe-area-inset-bottom,0px))!important;
+}
+html[data-theme="dark"] body.light-theme .mobile-bar a{
+ min-height:52px;min-width:0;display:flex;align-items:center;justify-content:center;
+}
+html[data-theme="dark"] body.light-theme .connect-enquiry :is(input,textarea){
+ width:100%;min-width:0;font-size:16px!important;
+}
+html[data-theme="dark"] body.light-theme .connect-enquiry small{
+ display:block;line-height:1.55;color:#d6e1eb!important;
+}
+html[data-theme="dark"] body.light-theme .shell .section,
+html[data-theme="dark"] body.light-theme .shell footer{background-clip:padding-box}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell{max-width:100%;overflow:clip}
+ html[data-theme="dark"] body.light-theme .shell .section{scroll-margin-top:12px}
+ html[data-theme="dark"] body.light-theme .shell footer{margin-bottom:calc(22px + env(safe-area-inset-bottom,0px))!important}
+ html[data-theme="dark"] body.light-theme .mobile-bar{transform:translateZ(0)}
+}
+@media(prefers-reduced-data:reduce){
+ html[data-theme="dark"] body.light-theme::before{animation:none!important}
+ html[data-theme="dark"] body.light-theme .hero .profile-card::before{animation:none!important}
+}
