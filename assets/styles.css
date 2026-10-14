@@ -1273,3 +1273,20 @@ html body.light-theme::before{z-index:0!important;opacity:.5!important}
  html body.light-theme .approach-section,
  html body.light-theme .connect-hub{background:rgba(11,25,39,.52)!important}
 }
+
+/* Animated stock market backdrop: visible above section backgrounds */
+html body.light-theme .shell{isolation:isolate;background:rgba(9,21,34,.74)!important}
+html body.light-theme .shell::before{
+ background:linear-gradient(180deg,rgba(7,17,29,.14),rgba(8,19,32,.2)),url("./market-backdrop.svg") center top/cover repeat-y!important;
+ opacity:.85!important;animation:vk-market-scroll 55s linear infinite!important;
+}
+@keyframes vk-market-scroll{from{background-position:center 0,center 0}to{background-position:center 0,center 900px}}
+html body.light-theme .services-section,html body.light-theme .profile-background,
+html body.light-theme .approach-section,html body.light-theme .connect-hub{
+ background:rgba(11,25,39,.38)!important;
+}
+html body.light-theme .services-section .service-grid>article:not(.visual){
+ background:rgba(24,42,60,.76)!important;
+}
+@media(max-width:700px){html body.light-theme .shell::before{background-size:cover,auto 1100px!important;animation-duration:75s!important}}
+@media(prefers-reduced-motion:reduce){html body.light-theme .shell::before{animation:none!important}}
