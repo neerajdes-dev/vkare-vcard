@@ -1135,3 +1135,57 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
   background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
  }
 }
+
+/* 2026-10-14 — VKare dark coral premium glass theme.
+   Preserve section structure, contact actions and readable typography. */
+:root{color-scheme:dark}
+html[data-theme="light"]{color-scheme:dark}
+body.light-theme{
+ background:radial-gradient(ellipse at 90% 0%,#38202c 0%,transparent 42%),linear-gradient(160deg,#0a1420,#111d29 70%,#0b1420)!important;
+ color:#eef3f8!important;
+}
+.light-theme .shell{background:#101b27!important;border-color:#32404d!important;box-shadow:0 28px 80px rgba(0,0,0,.35)!important}
+.light-theme .profile-background,.light-theme .services-section,
+.light-theme .approach-section,.light-theme .connect-hub,
+.light-theme .actions-lower{background:#111e2b!important;color:#eaf0f6!important;border-color:#2e3e4b!important}
+.light-theme .profile-background :is(p,h2,h3),
+.light-theme .services-section :is(p,h2,h3),
+.light-theme .approach-section :is(p,h2,h3),
+.light-theme .connect-hub :is(p,h2,h3){color:#e9eff6!important}
+.light-theme .profile-background p,.light-theme .services-section li,
+.light-theme .approach-section p{color:#c5d0dc!important}
+.light-theme .actions-lower :is(a,button),
+.light-theme .connect-location,.light-theme .connect-enquiry,
+.light-theme .service-card,.light-theme .approach-card{
+ background:rgba(28,43,58,.87)!important;
+ border-color:rgba(239,111,119,.25)!important;
+ color:#f3f6fa!important;
+ box-shadow:0 12px 32px rgba(0,0,0,.19),inset 0 1px 0 rgba(255,255,255,.09)!important;
+}
+.light-theme .actions-lower b,.light-theme .connect-address strong,
+.light-theme .connect-enquiry h2,.light-theme .connect-enquiry label{color:#f5f7fa!important}
+.light-theme .connect-address span,.light-theme .connect-enquiry>p,
+.light-theme .connect-enquiry small{color:#c1ccd8!important}
+.light-theme .connect-enquiry input,.light-theme .connect-enquiry textarea{
+ background:#0d1925!important;border-color:#3a4b59!important;color:#fff!important
+}
+.light-theme .compact-map-btn{background:#2a2430!important;color:#ff8390!important;border-color:#995364!important}
+.light-theme .mobile-bar{background:#101b27!important;border-top:1px solid #3b4856!important}
+.light-theme .mobile-bar a{color:#f2f5f8!important}
+.light-theme footer{background:#0b1622!important;color:#f3f5f8!important}
+.light-theme footer strong,.light-theme footer em{color:#f3f5f8!important}
+@supports ((backdrop-filter:blur(12px)) or (-webkit-backdrop-filter:blur(12px))){
+ .light-theme .actions-lower :is(a,button),.light-theme .connect-location,.light-theme .connect-enquiry{
+  backdrop-filter:blur(13px) saturate(130%)!important;
+  -webkit-backdrop-filter:blur(13px) saturate(130%)!important;
+ }
+}
+@media(max-width:700px){
+ .light-theme .actions-lower{background:#101b27!important}
+ .light-theme .actions-lower :is(a,button){background:#1b2b39!important}
+}
+@media(prefers-reduced-transparency:reduce){
+ .light-theme .actions-lower :is(a,button),.light-theme .connect-location,.light-theme .connect-enquiry{
+  background:#1c2b3a!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important
+ }
+}
