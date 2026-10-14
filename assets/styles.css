@@ -1444,3 +1444,37 @@ html[data-theme="dark"] body.light-theme .mobile-bar a:active{transform:scale(.9
  html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual),
  html[data-theme="dark"] body.light-theme .approach-flow>article{animation:none!important;translate:none!important}
 }
+
+/* Phase 13.7: visible, cohesive premium glass — refined after Android feedback */
+html[data-theme="dark"] body.light-theme .shell footer,
+html[data-theme="dark"] body.light-theme .shell .section,
+html[data-theme="dark"] body.light-theme .actions-lower{
+ overflow:hidden;
+ background:linear-gradient(145deg,rgba(55,78,100,.46),rgba(10,27,44,.48))!important;
+ border:1px solid rgba(255,181,193,.46)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(255,255,255,.04),0 14px 36px rgba(0,0,0,.28),0 0 25px rgba(255,83,118,.09)!important;
+}
+html[data-theme="dark"] body.light-theme .shell footer::before,
+html[data-theme="dark"] body.light-theme .shell .section::before{
+ content:"";position:absolute;inset:0 0 auto;height:90px;pointer-events:none;
+ background:linear-gradient(180deg,rgba(255,255,255,.10),transparent)!important;
+ border:0!important;
+}
+html[data-theme="dark"] body.light-theme .shell footer{padding-top:38px!important;padding-bottom:38px!important}
+html[data-theme="dark"] body.light-theme .shell footer .footer-logo{
+ border:1px solid rgba(255,172,185,.52)!important;
+ box-shadow:0 0 22px rgba(248,83,113,.22),0 8px 22px rgba(0,0,0,.22)!important;
+ border-radius:18px!important;
+}
+html[data-theme="dark"] body.light-theme .shell footer strong{
+ display:block;letter-spacing:.1em;text-shadow:0 2px 16px rgba(255,255,255,.12);
+}
+html[data-theme="dark"] body.light-theme .shell footer em{display:block;margin-top:8px!important}
+html[data-theme="dark"] body.light-theme .mobile-bar{border-top:1px solid rgba(255,174,185,.6)!important}
+html[data-theme="dark"] body.light-theme .mobile-bar .mobile-icon{
+ box-shadow:0 0 16px rgba(246,77,106,.13),inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell .section,
+ html[data-theme="dark"] body.light-theme .shell footer{-webkit-backdrop-filter:blur(8px) saturate(125%)!important;backdrop-filter:blur(8px) saturate(125%)!important}
+}
