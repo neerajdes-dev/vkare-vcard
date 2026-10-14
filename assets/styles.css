@@ -1096,3 +1096,42 @@ footer em{background:linear-gradient(90deg,var(--vk-coral),var(--vk-peach));-web
  .light-theme .actions-lower :is(a,button),.light-theme .compact-map-btn,
  .light-theme .connect-enquiry .btn.primary{transition:none!important;animation:none!important}
 }
+
+/* 2026-10-14 — VKare premium light glass finish, adapted from Resolvent.
+   Restrict translucency to surfaces, not text or the finance imagery. */
+@supports ((backdrop-filter:blur(12px)) or (-webkit-backdrop-filter:blur(12px))){
+ .light-theme .actions-lower :is(a,button),
+ .light-theme .connect-location,
+ .light-theme .connect-enquiry,
+ .light-theme .service-card,
+ .light-theme .approach-card{
+  background:rgba(255,255,255,.83)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(135%);
+  backdrop-filter:blur(14px) saturate(135%);
+  border-color:rgba(231,210,211,.82)!important;
+  box-shadow:0 8px 30px rgba(22,36,54,.07),inset 0 1px 0 rgba(255,255,255,.95)!important;
+ }
+}
+.light-theme .actions-lower :is(a,button),
+.light-theme .connect-location,.light-theme .connect-enquiry{
+ border:1px solid rgba(231,210,211,.85)!important;
+ box-shadow:0 8px 26px rgba(22,36,54,.07),inset 0 1px 0 #fff!important;
+}
+.light-theme .actions-lower :is(a,button){border-radius:17px!important}
+.light-theme .connect-location{border-radius:20px!important}
+.light-theme .connect-enquiry{border-radius:22px!important}
+@media(max-width:700px){
+ @supports ((backdrop-filter:blur(6px)) or (-webkit-backdrop-filter:blur(6px))){
+  .light-theme .actions-lower :is(a,button),
+  .light-theme .connect-location,.light-theme .connect-enquiry{
+   -webkit-backdrop-filter:blur(7px) saturate(115%);
+   backdrop-filter:blur(7px) saturate(115%);
+  }
+ }
+}
+@media(prefers-reduced-transparency:reduce){
+ .light-theme .actions-lower :is(a,button),
+ .light-theme .connect-location,.light-theme .connect-enquiry{
+  background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ }
+}
