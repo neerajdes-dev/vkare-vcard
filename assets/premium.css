@@ -1,0 +1,171 @@
+/* VKare premium effects, Phase 13–16. Load after styles.css to preserve cascade. */
+/* Phase 13.1–13.6: coral aurora, profile halo, coin parallax, tactile actions, reveal and mobile safeguards */
+html[data-theme="dark"] body.light-theme .shell{overflow:clip}
+html[data-theme="dark"] body.light-theme .shell::after{
+ content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+ background:radial-gradient(ellipse 280px 360px at 12% 12%,rgba(250,78,115,.15),transparent 75%),
+ radial-gradient(ellipse 340px 400px at 92% 45%,rgba(48,151,220,.14),transparent 77%),
+ radial-gradient(ellipse 260px 330px at 22% 85%,rgba(255,117,72,.12),transparent 75%);
+ background-size:100% 100%;animation:vk-aurora 18s ease-in-out infinite alternate;
+}
+@keyframes vk-aurora{from{opacity:.55;transform:translate3d(-8px,0,0)}to{opacity:1;transform:translate3d(8px,-18px,0)}}
+html[data-theme="dark"] body.light-theme .hero .profile-card{position:relative;isolation:isolate}
+html[data-theme="dark"] body.light-theme .hero .profile-card .profile{
+ position:relative;z-index:1;border:3px solid rgba(255,161,176,.83)!important;
+ box-shadow:0 0 0 6px rgba(247,76,109,.09),0 0 35px rgba(247,76,109,.23)!important;
+ animation:vk-portrait-breathe 5s ease-in-out infinite alternate;
+}
+@keyframes vk-portrait-breathe{to{box-shadow:0 0 0 9px rgba(247,76,109,.13),0 0 47px rgba(247,76,109,.34)}}
+html[data-theme="dark"] body.light-theme .hero .profile-card::before{
+ content:"";position:absolute;width:210px;height:210px;top:50%;left:50%;transform:translate(-50%,-50%);
+ border-radius:50%;border:1px dashed rgba(255,116,142,.36);pointer-events:none;
+ animation:vk-halo-spin 34s linear infinite;opacity:.65;
+}
+@keyframes vk-halo-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button),
+html[data-theme="dark"] body.light-theme .mobile-bar a,
+html[data-theme="dark"] body.light-theme .connect-enquiry button{
+ position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease!important;
+ -webkit-tap-highlight-color:transparent;
+}
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button)::after{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.10) 48%,transparent 70%);
+ transform:translateX(-125%);transition:transform .7s ease;
+}
+@media(hover:hover) and (pointer:fine){
+ html[data-theme="dark"] body.light-theme .actions-lower :is(a,button):hover::after{transform:translateX(125%)}
+ html[data-theme="dark"] body.light-theme .actions-lower :is(a,button):hover{transform:translateY(-3px)!important;box-shadow:0 14px 35px rgba(241,70,106,.17)!important}
+}
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button):active,
+html[data-theme="dark"] body.light-theme .mobile-bar a:active{transform:scale(.96)!important}
+@supports(animation-timeline:view()){
+ html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual),
+ html[data-theme="dark"] body.light-theme .approach-flow>article{
+  animation:vk-reveal both linear;animation-timeline:view();animation-range:entry 0% entry 22%;
+ }
+ @keyframes vk-reveal{from{opacity:.75;translate:0 12px}to{opacity:1;translate:0 0}}
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell::after{animation-duration:26s}
+ html[data-theme="dark"] body.light-theme .hero .profile-card::before{width:170px;height:170px}
+ html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual){backdrop-filter:blur(6px)!important;-webkit-backdrop-filter:blur(6px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme="dark"] body.light-theme .shell::after,
+ html[data-theme="dark"] body.light-theme .hero .profile-card .profile,
+ html[data-theme="dark"] body.light-theme .hero .profile-card::before,
+ html[data-theme="dark"] body.light-theme .service-grid>article:not(.visual),
+ html[data-theme="dark"] body.light-theme .approach-flow>article{animation:none!important;translate:none!important}
+}
+
+/* Phase 13.7: visible, cohesive premium glass — refined after Android feedback */
+html[data-theme="dark"] body.light-theme .shell footer,
+html[data-theme="dark"] body.light-theme .shell .section,
+html[data-theme="dark"] body.light-theme .actions-lower{
+ overflow:hidden;
+ background:linear-gradient(145deg,rgba(55,78,100,.46),rgba(10,27,44,.48))!important;
+ border:1px solid rgba(255,181,193,.46)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.25),inset 0 -1px 0 rgba(255,255,255,.04),0 14px 36px rgba(0,0,0,.28),0 0 25px rgba(255,83,118,.09)!important;
+}
+html[data-theme="dark"] body.light-theme .shell footer::before,
+html[data-theme="dark"] body.light-theme .shell .section::before{
+ content:"";position:absolute;inset:0 0 auto;height:90px;pointer-events:none;
+ background:linear-gradient(180deg,rgba(255,255,255,.10),transparent)!important;
+ border:0!important;
+}
+html[data-theme="dark"] body.light-theme .shell footer{padding-top:38px!important;padding-bottom:38px!important}
+html[data-theme="dark"] body.light-theme .shell footer .footer-logo{
+ border:1px solid rgba(255,172,185,.52)!important;
+ box-shadow:0 0 22px rgba(248,83,113,.22),0 8px 22px rgba(0,0,0,.22)!important;
+ border-radius:18px!important;
+}
+html[data-theme="dark"] body.light-theme .shell footer strong{
+ display:block;letter-spacing:.1em;text-shadow:0 2px 16px rgba(255,255,255,.12);
+}
+html[data-theme="dark"] body.light-theme .shell footer em{display:block;margin-top:8px!important}
+html[data-theme="dark"] body.light-theme .mobile-bar{border-top:1px solid rgba(255,174,185,.6)!important}
+html[data-theme="dark"] body.light-theme .mobile-bar .mobile-icon{
+ box-shadow:0 0 16px rgba(246,77,106,.13),inset 0 1px 0 rgba(255,255,255,.2)!important;
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell .section,
+ html[data-theme="dark"] body.light-theme .shell footer{-webkit-backdrop-filter:blur(8px) saturate(125%)!important;backdrop-filter:blur(8px) saturate(125%)!important}
+}
+
+/* Phase 14 production stabilization: consistent glass, legibility and mobile compositor budget */
+html[data-theme="dark"] body.light-theme .shell .section,
+html[data-theme="dark"] body.light-theme .shell footer{
+ color:#edf3f8!important;
+}
+html[data-theme="dark"] body.light-theme .shell .section :is(h1,h2,h3,strong),
+html[data-theme="dark"] body.light-theme .shell footer strong{color:#f8fbff!important}
+html[data-theme="dark"] body.light-theme .shell .section :is(p,li,label),
+html[data-theme="dark"] body.light-theme .shell footer em{color:#d5e0eb!important}
+html[data-theme="dark"] body.light-theme .shell .eyebrow{color:#ff7189!important}
+html[data-theme="dark"] body.light-theme .shell .service-no,
+html[data-theme="dark"] body.light-theme .shell .step-no{color:#ff7189!important}
+html[data-theme="dark"] body.light-theme .shell .section,
+html[data-theme="dark"] body.light-theme .shell footer,
+html[data-theme="dark"] body.light-theme .actions-lower :is(a,button){
+ -webkit-backdrop-filter:blur(9px) saturate(120%)!important;
+ backdrop-filter:blur(9px) saturate(120%)!important;
+}
+html[data-theme="dark"] body.light-theme .shell .section :is(a,button,input,textarea):focus-visible,
+html[data-theme="dark"] body.light-theme .mobile-bar a:focus-visible{
+ outline:3px solid #ff8fa0!important;outline-offset:3px!important;
+}
+html[data-theme="dark"] body.light-theme .shell .section :is(input,textarea){
+ color:#f7fbff!important;caret-color:#ff879a!important;
+}
+html[data-theme="dark"] body.light-theme .shell .section :is(input,textarea)::placeholder{color:#aebecd!important;opacity:1}
+html[data-theme="dark"] body.light-theme .shell .service-grid>article:not(.visual),
+html[data-theme="dark"] body.light-theme .shell .approach-flow>article{
+ background:linear-gradient(145deg,rgba(35,54,72,.78),rgba(17,34,50,.83))!important;
+}
+html[data-theme="dark"] body.light-theme .mobile-bar a{touch-action:manipulation}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell .section,
+ html[data-theme="dark"] body.light-theme .shell footer,
+ html[data-theme="dark"] body.light-theme .actions-lower :is(a,button){
+  -webkit-backdrop-filter:blur(6px) saturate(110%)!important;
+  backdrop-filter:blur(6px) saturate(110%)!important;
+ }
+ html[data-theme="dark"] body.light-theme::before{will-change:auto!important}
+ html[data-theme="dark"] body.light-theme .shell::after{animation:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ html[data-theme="dark"] body.light-theme *,html[data-theme="dark"] body.light-theme *::before,
+ html[data-theme="dark"] body.light-theme *::after{
+  animation-duration:.01ms!important;animation-iteration-count:1!important;
+  transition-duration:.01ms!important;
+ }
+}
+
+/* Phase 15 — mobile finish, stable tap targets, and responsive performance */
+html{scroll-padding-bottom:100px}
+html[data-theme="dark"] body.light-theme .mobile-bar{
+ padding-bottom:max(8px,env(safe-area-inset-bottom,0px))!important;
+}
+html[data-theme="dark"] body.light-theme .mobile-bar a{
+ min-height:52px;min-width:0;display:flex;align-items:center;justify-content:center;
+}
+html[data-theme="dark"] body.light-theme .connect-enquiry :is(input,textarea){
+ width:100%;min-width:0;font-size:16px!important;
+}
+html[data-theme="dark"] body.light-theme .connect-enquiry small{
+ display:block;line-height:1.55;color:#d6e1eb!important;
+}
+html[data-theme="dark"] body.light-theme .shell .section,
+html[data-theme="dark"] body.light-theme .shell footer{background-clip:padding-box}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .shell{max-width:100%;overflow:clip}
+ html[data-theme="dark"] body.light-theme .shell .section{scroll-margin-top:12px}
+ html[data-theme="dark"] body.light-theme .shell footer{margin-bottom:calc(22px + env(safe-area-inset-bottom,0px))!important}
+ html[data-theme="dark"] body.light-theme .mobile-bar{transform:translateZ(0)}
+}
+@media(prefers-reduced-data:reduce){
+ html[data-theme="dark"] body.light-theme::before{animation:none!important}
+ html[data-theme="dark"] body.light-theme .hero .profile-card::before{animation:none!important}
+}
