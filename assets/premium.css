@@ -191,3 +191,11 @@ html[data-theme="dark"] body.light-theme .vk-professional-details blockquote{
 @media(max-width:700px){
  html[data-theme="dark"] body.light-theme .vk-professional-details blockquote{padding:14px 16px}
 }
+
+/* Final hero designation */
+html[data-theme="dark"] body.light-theme .hero .profile-card .vk-hero-designation{
+ display:block;margin:8px auto 0!important;padding:0 8px;
+ color:#ff9eae!important;font-size:clamp(.88rem,2.8vw,1.06rem);
+ font-weight:650;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;
+ text-align:center;text-shadow:0 0 18px rgba(242,56,88,.3);
+}
