@@ -6,7 +6,7 @@ if(shareButton){shareButton.addEventListener("click",async()=>{
  if(navigator.share){try{await navigator.share(d);return}catch(e){if(e?.name==="AbortError")return}}
  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(d.url)}else{
  const field=document.createElement("textarea");field.value=d.url;field.style.position="fixed";field.style.opacity="0";document.body.appendChild(field);field.select();const ok=document.execCommand("copy");field.remove();if(!ok)throw Error("Copy unavailable");
- }alert("Card link copied.")}catch(e){window.prompt("Copy this VCard link:",d.url)}
+ }showVkToast("VCard link copied")}catch(e){window.prompt("Copy this VCard link:",d.url)}
 })}
 const contactForm=document.getElementById("contactForm");
 if(contactForm){contactForm.addEventListener("submit",e=>{
@@ -24,12 +24,12 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
 (()=>{
  const section=document.querySelector(".approach-section");
  const cards=section?Array.from(section.querySelectorAll(".approach-flow > article")):[];
- if(cards.length!==4)return;
+ if(cards.length<1)return;
  const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
  if(reduce)return;
  let started=false;
  cards.forEach((card,i)=>{
-  card.style.setProperty("--vk-card-delay",String(i*240)+"ms");
+  card.style.setProperty("--vk-card-delay",String(i*130)+"ms");
   card.classList.add("vk-sequence-ready");
  });
  function show(){
@@ -74,6 +74,66 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
   if(active&&active!==section)active.classList.remove("vk-touch-active");
   if(active===section){section.classList.remove("vk-touch-active");active=null;return}
   section.classList.add("vk-touch-active");
+  const bounds=section.getBoundingClientRect();
+  section.style.setProperty("--vk-tap-x",((event.clientX-bounds.left)/bounds.width*100).toFixed(1)+"%");
+  section.style.setProperty("--vk-tap-y",((event.clientY-bounds.top)/bounds.height*100).toFixed(1)+"%");
   active=section;
  },{passive:true});
+})();
+
+/* Phase 18.4: premium tactile enhancements with accessible feedback. */
+function showVkToast(message){
+ let toast=document.getElementById("vk-feedback-toast");
+ if(!toast){
+  toast=document.createElement("div");toast.id="vk-feedback-toast";
+  toast.setAttribute("role","status");toast.setAttribute("aria-live","polite");
+  document.body.appendChild(toast);
+ }
+ toast.textContent=message;
+ toast.classList.add("vk-toast-visible");
+ clearTimeout(showVkToast.timer);
+ showVkToast.timer=setTimeout(()=>toast.classList.remove("vk-toast-visible"),2300);
+}
+(()=>{
+ const portrait=document.querySelector(".hero .profile");
+ if(portrait){
+  portrait.addEventListener("click",()=>{
+   const frame=portrait.closest(".profile-card");
+   frame?.classList.remove("vk-portrait-pulse");
+   void frame?.offsetWidth;
+   frame?.classList.add("vk-portrait-pulse");
+  });
+ }
+ const profile=document.querySelector(".profile-background .background-copy");
+ if(profile){
+  profile.addEventListener("click",event=>{
+   const p=event.target.closest("p");
+   if(!p||!profile.contains(p))return;
+   profile.querySelectorAll("p").forEach(item=>item.classList.toggle("vk-reading-active",item===p));
+  });
+ }
+ const principles=document.querySelector(".vk-values-signature > p");
+ if(principles){
+  const nodes=Array.from(principles.childNodes);
+  nodes.forEach(node=>{
+   if(node.nodeType!==Node.TEXT_NODE||!node.textContent.trim())return;
+   const fragment=document.createDocumentFragment();
+   node.textContent.split(/(Integrity|Trust|Transparency|Discipline|Client-Centricity)/g).forEach(part=>{
+    if(!part)return;
+    if(/^(Integrity|Trust|Transparency|Discipline|Client-Centricity)$/.test(part)){
+     const chip=document.createElement("button");
+     chip.type="button";chip.className="vk-principle-chip";chip.textContent=part;
+     chip.setAttribute("aria-pressed","false");
+     chip.addEventListener("click",()=>{
+      principles.querySelectorAll(".vk-principle-chip").forEach(other=>{
+       const on=other===chip&&other.getAttribute("aria-pressed")!=="true";
+       other.setAttribute("aria-pressed",String(on));
+      });
+     });
+     fragment.appendChild(chip);
+    }else fragment.appendChild(document.createTextNode(part));
+   });
+   node.replaceWith(fragment);
+  });
+ }
 })();
