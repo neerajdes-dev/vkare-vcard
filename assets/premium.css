@@ -382,3 +382,20 @@ html[data-theme="dark"] body.light-theme :is(.service-grid>article:not(.visual),
 @media(prefers-reduced-motion:reduce){
  html[data-theme="dark"] body.light-theme :is(.actions-lower a,.actions-lower button,.compact-map-btn,.connect-enquiry .btn,.mobile-bar a){transition:none!important}
 }
+
+/* Standalone growth image after removal of expertise cards. */
+html[data-theme="dark"] body.light-theme .vk-growth-visual{
+ padding:clamp(12px,3vw,24px)!important;
+ overflow:hidden;
+}
+html[data-theme="dark"] body.light-theme .vk-growth-visual .wealth-image{
+ width:100%;margin:0 auto;overflow:hidden;border-radius:18px;
+}
+html[data-theme="dark"] body.light-theme .vk-growth-visual img{
+ display:block;width:100%;height:auto;max-height:440px;
+ object-fit:contain;border-radius:16px;
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .vk-growth-visual{padding:12px!important}
+ html[data-theme="dark"] body.light-theme .vk-growth-visual .wealth-image{border-radius:14px}
+}
