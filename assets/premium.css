@@ -399,3 +399,26 @@ html[data-theme="dark"] body.light-theme .vk-growth-visual img{
  html[data-theme="dark"] body.light-theme .vk-growth-visual{padding:12px!important}
  html[data-theme="dark"] body.light-theme .vk-growth-visual .wealth-image{border-radius:14px}
 }
+
+/* Professional Experience & Capabilities: quiet premium editorial layout */
+html[data-theme="dark"] body.light-theme .vk-capabilities-section{
+ padding:clamp(24px,4vw,42px)!important;
+}
+html[data-theme="dark"] body.light-theme .vk-capabilities-section .eyebrow{
+ display:block;margin-bottom:22px;
+}
+html[data-theme="dark"] body.light-theme .vk-capabilities-copy{
+ max-width:900px;
+}
+html[data-theme="dark"] body.light-theme .vk-capabilities-copy p{
+ color:#e0e7ef!important;
+ line-height:1.85;
+ margin:0 0 18px;
+ text-wrap:pretty;
+}
+html[data-theme="dark"] body.light-theme .vk-capabilities-copy p:last-child{margin-bottom:0}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .vk-capabilities-section{padding:22px 20px!important}
+ html[data-theme="dark"] body.light-theme .vk-capabilities-section .eyebrow{line-height:1.55}
+ html[data-theme="dark"] body.light-theme .vk-capabilities-copy p{line-height:1.75}
+}
