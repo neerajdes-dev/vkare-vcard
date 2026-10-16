@@ -470,3 +470,18 @@ html[data-theme="dark"] body.light-theme .vk-training-copy p{
   width:100%!important;min-width:0!important;
  }
 }
+
+/* Relocated Better Planning visual after Guiding Principles. */
+html[data-theme="dark"] body.light-theme .vk-future-visual{
+ padding:clamp(12px,2.5vw,24px)!important;overflow:hidden;
+}
+html[data-theme="dark"] body.light-theme .vk-future-visual .wealth-image{
+ width:100%;margin:0;overflow:hidden;border-radius:18px;
+}
+html[data-theme="dark"] body.light-theme .vk-future-visual img{
+ display:block;width:100%;height:auto;object-fit:contain;border-radius:16px;
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .vk-future-visual{padding:12px!important}
+ html[data-theme="dark"] body.light-theme .vk-future-visual .wealth-image{border-radius:14px}
+}
