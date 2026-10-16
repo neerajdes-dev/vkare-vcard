@@ -20,36 +20,41 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
  window.location.href="mailto:connect@vkare.co.in?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 })}
 
-/* Financial Planning Philosophy — robust sequential reveal via Web Animations API.
-   Does not rely on CSS animations or scroll-timeline support. */
+/* Chrome Android: scroll-triggered sequential reveal with CSS state changes. */
 (()=>{
  const section=document.querySelector(".approach-section");
- const cards=section?[...section.querySelectorAll(".approach-flow > article")]:[];
- if(!cards.length)return;
- const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- if(reduced||typeof Element.prototype.animate!=="function")return;
- let played=false;
- let running=[];
- function reveal(){
-  if(played)return;
-  played=true;
-  running=cards.map((card,i)=>card.animate(
-   [{opacity:0,transform:"translateY(28px)"},{opacity:1,transform:"translateY(0px)"}],
-   {duration:720,delay:i*220,easing:"cubic-bezier(.2,.75,.25,1)",fill:"backwards"}
-  ));
+ const cards=section?Array.from(section.querySelectorAll(".approach-flow > article")):[];
+ if(cards.length!==4)return;
+ const reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ if(reduce)return;
+ let started=false;
+ cards.forEach((card,i)=>{
+  card.style.setProperty("--vk-card-delay",String(i*240)+"ms");
+  card.classList.add("vk-sequence-ready");
+ });
+ function show(){
+  if(started)return;
+  started=true;
+  section.classList.add("vk-sequence-start");
+  window.removeEventListener("scroll",check);
+  window.removeEventListener("resize",check);
+  if(observer)observer.disconnect();
  }
- // Trigger as soon as the section becomes visible, including on restored scroll position.
+ function check(){
+  const box=section.getBoundingClientRect();
+  if(box.top<window.innerHeight*0.87&&box.bottom>0)show();
+ }
+ let observer=null;
  if("IntersectionObserver" in window){
-  const observer=new IntersectionObserver(entries=>{
-   if(entries.some(e=>e.isIntersecting)){reveal();observer.disconnect();}
-  },{threshold:0,rootMargin:"0px 0px 60px 0px"});
+  observer=new IntersectionObserver(entries=>{
+   if(entries.some(e=>e.isIntersecting))check();
+  },{rootMargin:"0px 0px -10% 0px",threshold:0});
   observer.observe(section);
- }else{
-  const onScroll=()=>{
-   const box=section.getBoundingClientRect();
-   if(box.top<window.innerHeight&&box.bottom>0){reveal();window.removeEventListener("scroll",onScroll);}
-  };
-  window.addEventListener("scroll",onScroll,{passive:true});
-  onScroll();
  }
+ window.addEventListener("scroll",check,{passive:true});
+ window.addEventListener("resize",check,{passive:true});
+ // First frame: ensure hidden state is painted before activating.
+ requestAnimationFrame(()=>requestAnimationFrame(check));
+ // Never leave the cards hidden if the page is backgrounded or a callback is missed.
+ window.addEventListener("pagehide",show,{once:true});
 })();
