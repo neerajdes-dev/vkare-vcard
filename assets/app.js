@@ -20,25 +20,36 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
  window.location.href="mailto:connect@vkare.co.in?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 })}
 
-/* Financial Planning Philosophy: one-time staggered reveal on entering viewport. */
+/* Financial Planning Philosophy — robust sequential reveal via Web Animations API.
+   Does not rely on CSS animations or scroll-timeline support. */
 (()=>{
- const cards=[...document.querySelectorAll(".approach-section .approach-flow > article")];
- if(!cards.length||!("IntersectionObserver" in window)||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
  const section=document.querySelector(".approach-section");
- if(!section)return;
- // Only hide cards after JS has initialized; if JS fails, all content remains visible.
- cards.forEach((card,index)=>{
-  card.style.setProperty("--vk-reveal-delay",index*150+"ms");
-  card.classList.add("vk-step-pending");
- });
- const observer=new IntersectionObserver(entries=>{
-  if(!entries.some(entry=>entry.isIntersecting))return;
-  cards.forEach(card=>card.classList.add("vk-step-visible"));
-  observer.disconnect();
- },{threshold:0.01,rootMargin:"0px 0px 0px 0px"});
- observer.observe(section);
- // Failsafe: show cards if intersection callbacks are delayed by a mobile browser.
- window.setTimeout(()=>cards.forEach(card=>card.classList.add("vk-step-visible")),5000);
- // Prevent permanently hidden content if the browser throttles intersection events.
- window.addEventListener("pagehide",()=>cards.forEach(card=>card.classList.add("vk-step-visible")),{once:true});
+ const cards=section?[...section.querySelectorAll(".approach-flow > article")]:[];
+ if(!cards.length)return;
+ const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ if(reduced||typeof Element.prototype.animate!=="function")return;
+ let played=false;
+ let running=[];
+ function reveal(){
+  if(played)return;
+  played=true;
+  running=cards.map((card,i)=>card.animate(
+   [{opacity:0,transform:"translateY(28px)"},{opacity:1,transform:"translateY(0px)"}],
+   {duration:720,delay:i*220,easing:"cubic-bezier(.2,.75,.25,1)",fill:"backwards"}
+  ));
+ }
+ // Trigger as soon as the section becomes visible, including on restored scroll position.
+ if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver(entries=>{
+   if(entries.some(e=>e.isIntersecting)){reveal();observer.disconnect();}
+  },{threshold:0,rootMargin:"0px 0px 60px 0px"});
+  observer.observe(section);
+ }else{
+  const onScroll=()=>{
+   const box=section.getBoundingClientRect();
+   if(box.top<window.innerHeight&&box.bottom>0){reveal();window.removeEventListener("scroll",onScroll);}
+  };
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
+ }
 })();
