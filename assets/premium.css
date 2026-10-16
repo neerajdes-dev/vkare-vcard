@@ -199,3 +199,12 @@ html[data-theme="dark"] body.light-theme .hero .profile-card .vk-hero-designatio
  font-weight:650;line-height:1.5;letter-spacing:.09em;text-transform:uppercase;
  text-align:center;text-shadow:0 0 18px rgba(242,56,88,.3);
 }
+
+/* Final content: readable expertise descriptions */
+html[data-theme="dark"] body.light-theme .services-section .service-grid > article:not(.visual) > p{
+ color:#e1eaf2!important;line-height:1.65;font-size:.94rem;
+ margin:12px 0 0;overflow-wrap:break-word;
+}
+html[data-theme="dark"] body.light-theme .profile-background .background-copy p{
+ line-height:1.75;
+}
