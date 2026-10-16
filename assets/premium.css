@@ -440,3 +440,33 @@ html[data-theme="dark"] body.light-theme .vk-training-copy p{
  html[data-theme="dark"] body.light-theme .vk-training-copy{gap:14px;margin-top:16px}
  html[data-theme="dark"] body.light-theme .vk-training-copy p{line-height:1.7}
 }
+
+/* Five-card financial planning layout — balanced desktop, readable Android. */
+@media(min-width:1050px){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;align-items:stretch!important;
+ }
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow>article:nth-child(4){
+  grid-column:1 / 2;
+ }
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow>article:nth-child(5){
+  grid-column:2 / 4;
+ }
+}
+@media(min-width:701px) and (max-width:1049px){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important;
+ }
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow>article:last-child{
+  grid-column:1 / -1;
+ }
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important;
+ }
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow>article{
+  width:100%!important;min-width:0!important;
+ }
+}
