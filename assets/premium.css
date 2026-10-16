@@ -244,3 +244,22 @@ html[data-theme="dark"] body.light-theme .vk-values-signature p{
 
 /* Sequential reveal is driven by the Web Animations API in app.js.
    Keep cards visible by default so content always works if scripting is blocked. */
+
+/* Chrome Android scroll-reveal: JS controls only classes, CSS owns presentation. */
+@media(prefers-reduced-motion:no-preference){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow > article.vk-sequence-ready{
+  opacity:0!important;
+  transform:translate3d(0,28px,0)!important;
+  transition:opacity 760ms ease,transform 760ms cubic-bezier(.2,.75,.25,1)!important;
+  transition-delay:var(--vk-card-delay,0ms)!important;
+ }
+ html[data-theme="dark"] body.light-theme .approach-section.vk-sequence-start .approach-flow > article.vk-sequence-ready{
+  opacity:1!important;
+  transform:translate3d(0,0,0)!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow > article.vk-sequence-ready{
+  opacity:1!important;transform:none!important;transition:none!important;
+ }
+}
