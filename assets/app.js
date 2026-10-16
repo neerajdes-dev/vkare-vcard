@@ -19,3 +19,24 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
  const body=["Name: "+n,"Email: "+em,"Mobile Number: "+mob,"","Requested Details / Message:",m].join("\r\n");
  window.location.href="mailto:connect@vkare.co.in?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
 })}
+
+/* Financial Planning Philosophy: one-time staggered reveal on entering viewport. */
+(()=>{
+ const cards=[...document.querySelectorAll(".approach-section .approach-flow > article")];
+ if(!cards.length||!("IntersectionObserver" in window)||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ const section=document.querySelector(".approach-section");
+ if(!section)return;
+ // Only hide cards after JS has initialized; if JS fails, all content remains visible.
+ cards.forEach((card,index)=>{
+  card.style.setProperty("--vk-reveal-delay",index*150+"ms");
+  card.classList.add("vk-step-pending");
+ });
+ const observer=new IntersectionObserver(entries=>{
+  if(!entries.some(entry=>entry.isIntersecting))return;
+  cards.forEach(card=>card.classList.add("vk-step-visible"));
+  observer.disconnect();
+ },{threshold:0.12,rootMargin:"0px 0px -30px 0px"});
+ observer.observe(section);
+ // Prevent permanently hidden content if the browser throttles intersection events.
+ window.addEventListener("pagehide",()=>cards.forEach(card=>card.classList.add("vk-step-visible")),{once:true});
+})();
