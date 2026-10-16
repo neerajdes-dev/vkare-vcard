@@ -242,3 +242,20 @@ html[data-theme="dark"] body.light-theme .vk-values-signature p{
  html[data-theme="dark"] body.light-theme .vk-global-highlight{padding:14px;gap:10px}
  html[data-theme="dark"] body.light-theme .vk-values-signature{padding-top:22px!important;padding-bottom:22px!important}
 }
+
+/* One-time sequential entrance; only cards initialized by JS animate. */
+@media(prefers-reduced-motion:no-preference){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow > article.vk-step-pending{
+  opacity:0!important;transform:translate3d(0,18px,0)!important;
+  transition:opacity 500ms ease,transform 500ms cubic-bezier(.22,.7,.3,1)!important;
+  transition-delay:var(--vk-reveal-delay,0ms)!important;
+ }
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow > article.vk-step-pending.vk-step-visible{
+  opacity:1!important;transform:translate3d(0,0,0)!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html[data-theme="dark"] body.light-theme .approach-section .approach-flow > article.vk-step-pending{
+  opacity:1!important;transform:none!important;transition:none!important;
+ }
+}
