@@ -208,3 +208,37 @@ html[data-theme="dark"] body.light-theme .services-section .service-grid > artic
 html[data-theme="dark"] body.light-theme .profile-background .background-copy p{
  line-height:1.75;
 }
+
+/* Final layout: integrated international highlight and compact values signature */
+html[data-theme="dark"] body.light-theme .vk-global-highlight{
+ display:flex;align-items:flex-start;gap:13px;margin-top:20px;padding:17px 18px;
+ border:1px solid rgba(255,255,255,.14);border-radius:16px;
+ background:linear-gradient(125deg,rgba(255,255,255,.095),rgba(255,255,255,.035));
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
+}
+html[data-theme="dark"] body.light-theme .vk-global-highlight .vk-highlight-icon{
+ display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:12px;
+ color:#ff9eae;background:rgba(242,56,88,.12);font-size:1.1rem;
+}
+html[data-theme="dark"] body.light-theme .vk-global-highlight strong{
+ display:block;color:#fff;font-size:1rem;line-height:1.4;
+}
+html[data-theme="dark"] body.light-theme .vk-global-highlight p{
+ margin:5px 0 0!important;color:#dce5ee!important;font-size:.9rem;line-height:1.55!important;
+}
+html[data-theme="dark"] body.light-theme .vk-values-signature{
+ padding-top:26px!important;padding-bottom:26px!important;text-align:center;
+}
+html[data-theme="dark"] body.light-theme .vk-values-signature blockquote{
+ margin:13px auto 15px;max-width:850px;border:0;padding:0;background:none;
+ color:#f6f8fc;font-size:clamp(1.04rem,2.5vw,1.35rem);font-weight:500;
+ font-style:italic;line-height:1.6;
+}
+html[data-theme="dark"] body.light-theme .vk-values-signature p{
+ margin:0;color:#ff9eae;font-size:.78rem;font-weight:650;letter-spacing:.035em;
+ line-height:1.9;
+}
+@media(max-width:700px){
+ html[data-theme="dark"] body.light-theme .vk-global-highlight{padding:14px;gap:10px}
+ html[data-theme="dark"] body.light-theme .vk-values-signature{padding-top:22px!important;padding-bottom:22px!important}
+}
