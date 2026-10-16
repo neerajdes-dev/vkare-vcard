@@ -58,3 +58,22 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
  // Never leave the cards hidden if the page is backgrounded or a callback is missed.
  window.addEventListener("pagehide",show,{once:true});
 })();
+
+/* Phase 18.3: single active section/card touch highlight. */
+(()=>{
+ const selector=".shell .section, .approach-flow > article";
+ const sections=Array.from(document.querySelectorAll(selector));
+ if(!sections.length)return;
+ let active=null;
+ const ignore="a,button,input,textarea,select,label,[role='button']";
+ document.addEventListener("click",event=>{
+  if(event.target.closest(ignore))return;
+  const card=event.target.closest(".approach-flow > article");
+  const section=card||event.target.closest(".shell .section");
+  if(!section)return;
+  if(active&&active!==section)active.classList.remove("vk-touch-active");
+  if(active===section){section.classList.remove("vk-touch-active");active=null;return}
+  section.classList.add("vk-touch-active");
+  active=section;
+ },{passive:true});
+})();
