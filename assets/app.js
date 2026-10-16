@@ -35,8 +35,10 @@ if(contactForm){contactForm.addEventListener("submit",e=>{
   if(!entries.some(entry=>entry.isIntersecting))return;
   cards.forEach(card=>card.classList.add("vk-step-visible"));
   observer.disconnect();
- },{threshold:0.12,rootMargin:"0px 0px -30px 0px"});
+ },{threshold:0.01,rootMargin:"0px 0px 0px 0px"});
  observer.observe(section);
+ // Failsafe: show cards if intersection callbacks are delayed by a mobile browser.
+ window.setTimeout(()=>cards.forEach(card=>card.classList.add("vk-step-visible")),5000);
  // Prevent permanently hidden content if the browser throttles intersection events.
  window.addEventListener("pagehide",()=>cards.forEach(card=>card.classList.add("vk-step-visible")),{once:true});
 })();
